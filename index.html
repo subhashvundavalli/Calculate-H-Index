@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<!--
+	Subhash vundavalli
+-->
+<html>
+	<head>
+<!-- Google tag (gtag.js) -->
+
+		<title>Online H-Index calculator</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		
+	</head>
+	<body class="is-preload">
+
+<div class="container">
+<style>
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+</style>
+        <h1>Online H-Index Calculator</h1>
+        <h2>Enter your citations (comma-separated)</h2>
+        <input type="text" id="citations" placeholder="e.g., 6, 5, 3, 1, 0">
+        <br>
+<ul class="actions special">
+										<li><input type = "button" value="Calculate"  onclick="calculateHIndex()" class="button"></a></li>
+									</ul>
+    
+        <h2>Your H-INDEX IS : <span id="result"></span></h2>
+<h3>MEET THE DEVELOPER OF THIS TOOL</h3>
+    </div>
+
+    <script>
+        function calculateHIndex() {
+            const citationsInput = document.getElementById("citations");
+            const resultSpan = document.getElementById("result");
+
+            // Get the citations input and split it by commas
+            const citations = citationsInput.value
+                .split(",")
+                .map(value => parseInt(value.trim()));
+
+            // Sort the citations in descending order
+            citations.sort((a, b) => b - a);
+
+            // Calculate the H-Index
+            let hIndex = 0;
+            for (let i = 0; i < citations.length; i++) {
+                if (citations[i] >= i + 1) {
+                    hIndex = i + 1;
+                } else {
+                    break;
+                }
+            }
+
+            // Display the result
+            resultSpan.textContent = hIndex;
+        }
+    </script>		
+<!-- Wrapper -->
+			<div id="wrapper">
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+						<section>
+							<h2>SUBHASH VUNDAVALLI</h2>
+							<dl class="alt">
+								<dt>Address</dt>
+								<dd>Sangam jagarlamudi,Guntur,Andhra Pradesh,INDIA.</dd>
+								<dt>Phone</dt>
+								<dd>+91 8186916048</dd>
+								<dt>Email</dt>
+								<dd><a href="https://subhashvundavalli954@gmail.com">subhashvundavalli954@gmail.com</a></dd>
+							</dl>
+							<ul class="icons">
+								<li><a href="https://instagram.com/subhashvundavalli" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+								<li><a href="https://github.com/subhashvundavalli" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+								<li><a href="https://linkedin.com/in/subhashvundavalli" class="icon brands fa-linkedin alt"><span class="label">Linkedin</span></a></li>
+							</ul>
+						</section>
+						<p class="copyright">&copy; subhashvundavalli. Design: <a href="#">subhashvundavalli</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
